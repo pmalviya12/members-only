@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+#This Project allows only logged in users to see the author(user_id) of the post for a non logged in user author should display as anonymous
