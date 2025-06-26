@@ -1,12 +1,13 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :new]
-  
+
   def new
     @post = Post.new
   end
 
   def create
     @post = Post.new(post_params)
+    @post.user = current_user
     if @post.save
       redirect_to posts_path, notice: "Post Created Successfully!!!"
     else
@@ -20,6 +21,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:user_id, :title, :body)
+    params.require(:post).permit( :title, :body)
   end
 end

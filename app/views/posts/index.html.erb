@@ -1,11 +1,4 @@
 <h1>Posts List</h1>
-<% if user_signed_in? %>
-  <p>Welcome, <%= current_user.email %>!</p>
-  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
-<% else %>
-  <%= link_to "Login", new_user_session_path %> |
-  <%= link_to "Sign Up", new_user_registration_path %>
-<% end %>
 
 <table border = 1>
   <thead>
@@ -19,8 +12,13 @@
   <% @posts.each do |p| %>
     <tr>
       <td><%= p.title %></td>
+      
       <td><%= p.body %></td>
-      <td><%= p.user.email %></td>
+      <% if user_signed_in? %>
+        <td><%= p.user.email %></td>
+      <% else %>
+        <td>Anonymous</p>
+        <% end %>
     </tr>
   <% end %>
 </table>
