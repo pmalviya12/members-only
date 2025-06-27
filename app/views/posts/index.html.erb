@@ -5,6 +5,7 @@
     <tr>
       <th>Name</th>
       <th>Body</th>
+      <th>Status</th>
       <th>Written By</th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <td><%= p.title %></td>
       
       <td><%= p.body %></td>
+      <td><%= p.status %></td>
       <% if user_signed_in? %>
         <td><%= p.user.email %></td>
       <% else %>
